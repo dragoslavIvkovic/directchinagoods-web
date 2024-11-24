@@ -29,7 +29,7 @@ export const Cta = () => {
             variant="outline"
             className="w-full md:w-auto"
           >
-            View all features
+            View all Contacts
           </Button>
         </div>
       </div>
