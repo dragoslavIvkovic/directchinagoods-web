@@ -1,17 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Landmark, Menu } from "lucide-react";
+import { Landmark, Menu, X } from "lucide-react";
 import LanguageSwitcher from "@/localizations/LanguageSwitcher";
 
 interface RouteProps {
@@ -70,71 +59,89 @@ export const Navbar = () => {
         scrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
-      <NavigationMenu className="mx-auto">
-        <NavigationMenuList className="container h-20 px-4 w-screen flex justify-between">
-          <NavigationMenuItem className="font-bold flex">
+      <nav className="mx-auto">
+        <div className="container min-h-16 px-4 w-full flex items-center justify-between">
+          <div className="font-bold">
             <a
               rel="noreferrer noopener"
               href="/"
-              className={`ml-2 font-bold text-3xl flex ${
+              className={`flex items-center text-lg sm:text-xl md:text-2xl font-bold transition-colors ${
                 scrolled ? "text-gray-900" : "text-white"
               }`}
             >
-              <Landmark className="h-8 w-8" />
-              <span className="ml-2">
-                <span>Doing business in China</span>
-              
-              </span>
+              <Landmark className="h-6 w-6 sm:h-7 sm:w-7" />
+              <span className="ml-2 truncate">Doing business in China</span>
             </a>
-          </NavigationMenuItem>
+          </div>
 
           {/* mobile */}
           <div className="flex items-center gap-2 md:hidden">
             <LanguageSwitcher />
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger className="px-2">
-                <Menu
-                  className={`h-6 w-6 ${
-                    scrolled ? "text-gray-900" : "text-white"
-                  }`}
-                  onClick={() => setIsOpen(true)}
-                >
-                  <span className="sr-only">Menu Icon</span>
-                </Menu>
-              </SheetTrigger>
+            <button 
+              onClick={() => setIsOpen(true)}
+              className="p-2"
+              aria-label="Open menu"
+            >
+              <Menu
+                className={`h-6 w-6 ${
+                  scrolled ? "text-gray-900" : "text-white"
+                }`}
+              />
+            </button>
 
-              <SheetContent side="left">
-                <SheetHeader />
-                <nav className="flex flex-col justify-center items-center gap-2 mt-4">
-                  {routeList.map((route: RouteProps) => (
-                    <a
-                      rel="noreferrer noopener"
-                      key={route.labelKey}
-                      href={route.href}
-                      onClick={(e) => {
-                        handleNavigation(e, route);
-                        setIsOpen(false);
-                      }}
-                      className="text-7xl text-gray-900 hover:text-gray-600 transition-colors"
+            {/* Mobile Menu Overlay */}
+            {isOpen && (
+              <>
+                {/* Backdrop */}
+                <div 
+                  className="fixed inset-0 bg-black bg-opacity-50 z-50"
+                  onClick={() => setIsOpen(false)}
+                />
+                
+                {/* Menu Panel */}
+                <div className="fixed top-0 left-0 w-full sm:w-80 h-full bg-white z-50 p-6 shadow-lg transform transition-transform duration-200">
+                  <div className="flex justify-between items-center mb-6">
+                    <h2 className="text-xl font-semibold text-gray-900">Navigation Menu</h2>
+                    <button 
+                      onClick={() => setIsOpen(false)}
+                      className="p-2"
+                      aria-label="Close menu"
                     >
-                      {t(route.labelKey)}
-                    </a>
-                  ))}
-                </nav>
-              </SheetContent>
-            </Sheet>
+                      <X className="h-6 w-6 text-gray-500" />
+                    </button>
+                  </div>
+              
+                  <nav className="flex flex-col gap-6">
+                    {routeList.map((route: RouteProps) => (
+                      <a
+                        rel="noreferrer noopener"
+                        key={route.labelKey}
+                        href={route.href}
+                        onClick={(e) => {
+                          handleNavigation(e, route);
+                          setIsOpen(false);
+                        }}
+                        className="text-2xl sm:text-3xl text-gray-900 hover:text-gray-600 transition-colors"
+                      >
+                        {t(route.labelKey)}
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+              </>
+            )}
           </div>
 
           {/* desktop */}
-          <div className="hidden md:flex items-center gap-6">
-            <nav className="flex gap-6">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
+            <nav className="flex gap-4 lg:gap-6">
               {routeList.map((route: RouteProps, i) => (
                 <a
                   rel="noreferrer noopener"
                   href={route.href}
                   key={i}
                   onClick={(e) => handleNavigation(e, route)}
-                  className={`text-2xl font-bold transition-colors ${
+                  className={`text-lg lg:text-xl font-medium transition-colors ${
                     scrolled
                       ? "text-gray-900 hover:text-gray-600"
                       : "text-white hover:text-gray-200"
@@ -144,12 +151,12 @@ export const Navbar = () => {
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-4 pl-6 border-l border-gray-200/20">
+            <div className="flex items-center gap-4 pl-4 lg:pl-6 border-l border-gray-200/20">
               <LanguageSwitcher />
             </div>
           </div>
-        </NavigationMenuList>
-      </NavigationMenu>
+        </div>
+      </nav>
     </header>
   );
 };
