@@ -1,4 +1,3 @@
- 
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -18,7 +17,7 @@ export const About = () => {
         {/* Hero Section with Gradient Overlay */}
         <div className="relative h-[400px] w-full">
           <img
-            src="/wall.jpg"
+           src="/wall.jpg"
             alt="Business in China"
             className="w-full h-full object-cover"
           />
@@ -35,9 +34,9 @@ export const About = () => {
         </div>
 
         <div className="px-6 lg:px-12 py-16">
-          {/* NEW: Strategic Vision Section */}
+          {/* Strategic Vision Section */}
           <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-6">Transform Your Business Potential</h2>
+            <h2 className="text-3xl font-bold mb-6 text-gray-700">Transform Your Business Potential</h2>
             <p className="text-lg text-gray-700 mb-6">
               In today's global marketplace, success in China isn't just about finding suppliers – it's about building a strategic advantage that transforms your entire business. We turn market complexity into your competitive edge, leveraging deep expertise in both Western business requirements and Chinese market dynamics to create unparalleled opportunities for growth.
             </p>
@@ -46,7 +45,7 @@ export const About = () => {
             </p>
           </div>
 
-          {/* Original Introduction */}
+          {/* Introduction */}
           <div className="max-w-4xl mx-auto mb-16">
             <p className="text-lg text-gray-700 mb-8">
               Expanding your business through sourcing from China is a strategic move that can unlock new levels of profitability and competitiveness. Whether you're looking for affordable, high-quality goods or exploring manufacturing partnerships, China offers opportunities few markets can rival. However, navigating this landscape requires more than ambition—it requires knowledge, connections, and ongoing support.
@@ -56,9 +55,9 @@ export const About = () => {
             </p>
           </div>
 
-          {/* NEW: Partnership Excellence Section */}
+          {/* Partnership Excellence Section */}
           <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-6">Your Success Is Our Mission</h2>
+            <h2 className="text-3xl font-bold mb-6 text-gray-700">Your Success Is Our Mission</h2>
             <p className="text-lg text-gray-700 mb-6">
               Navigate China's vast marketplace with confidence, backed by our comprehensive support system. We understand that every business has unique needs and challenges. That's why we provide personalized strategies and hands-on guidance throughout your journey, ensuring you achieve optimal results in every aspect of your China operations.
             </p>
@@ -67,15 +66,15 @@ export const About = () => {
             </p>
           </div>
 
-          {/* Original Why China Section */}
+          {/* Why China Section */}
           <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">Why China, and Why Us?</h2>
+            <h2 className="text-3xl font-bold mb-8 text-gray-700">Why China, and Why Us?</h2>
             <p className="text-lg text-gray-700 mb-8">
               China is a global hub for manufacturing and innovation, offering unparalleled cost advantages and an extensive range of products. However, entering this market is not without challenges:
             </p>
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-100">
-                <h3 className="text-xl font-semibold mb-4">Common Challenges</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-700">Common Challenges</h3>
                 <ul className="space-y-3">
                   {[
                     "Cultural and language differences",
@@ -84,14 +83,14 @@ export const About = () => {
                     "Navigating business systems without familiar tools like Google or PayPal"
                   ].map((challenge, idx) => (
                     <li key={idx} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-primary shrink-0 mr-3 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0 mr-3 mt-0.5" />
                       <span className="text-gray-600">{challenge}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-100">
-                <h3 className="text-xl font-semibold mb-4">Our Solution</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-700">Our Solution</h3>
                 <p className="text-gray-700 mb-4">
                   Our team bridges these gaps for you. With local experts on the ground in China, we act as your trusted representatives, ensuring a seamless process from start to finish.
                 </p>
@@ -102,9 +101,9 @@ export const About = () => {
             </div>
           </div>
 
-          {/* NEW: Market Leadership Section */}
+          {/* Market Leadership Section */}
           <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-6">Leading the Way in China Trade</h2>
+            <h2 className="text-3xl font-bold mb-6 text-gray-700">Leading the Way in China Trade</h2>
             <p className="text-lg text-gray-700 mb-6">
               The future of global business runs through China, and we ensure you're positioned to capitalize on every opportunity. Our deep understanding of market trends, regulatory requirements, and industry best practices allows us to anticipate challenges and identify opportunities others might miss. We transform complex market dynamics into clear, actionable strategies for your business.
             </p>
@@ -113,10 +112,10 @@ export const About = () => {
             </p>
           </div>
 
-          {/* Original Comprehensive Services */}
+          {/* Comprehensive Services */}
           <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">Our Services</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <h2 className="text-3xl font-bold mb-8 text-gray-700">Our Services</h2>
+            <div className="grid md:grid-cols-2 gap-8 text-gray-700">
               {[
                 {
                   title: "Sourcing the Right Products",
@@ -164,13 +163,13 @@ export const About = () => {
                   className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center mb-4">
-                    <service.icon className="h-6 w-6 text-primary mr-3" />
+                    <service.icon className="h-6 w-6 text-blue-600 mr-3" />
                     <h3 className="text-xl font-semibold">{service.title}</h3>
                   </div>
                   <ul className="space-y-3">
                     {service.points.map((point, idx) => (
                       <li key={idx} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-primary shrink-0 mr-3 mt-0.5" />
+                        <CheckCircle className="h-5 w-5 text-blue-600 shrink-0 mr-3 mt-0.5" />
                         <span className="text-gray-600">{point}</span>
                       </li>
                     ))}
@@ -180,27 +179,27 @@ export const About = () => {
             </div>
           </div>
 
-          {/* Original Long-term Success */}
+          {/* Long-term Success */}
           <div className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">Your Long-Term Success is Our Priority</h2>
+            <h2 className="text-3xl font-bold mb-8 text-gray-700">Your Long-Term Success is Our Priority</h2>
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-100">
-                <Globe className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Trusted Network</h3>
+                <Globe className="h-10 w-10 text-blue-600 mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-gray-700">Trusted Network</h3>
                 <p className="text-gray-600">
                   Strong relationships with reliable suppliers, manufacturers, and logistics partners across China.
                 </p>
               </div>
               <div className="bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-100">
-                <Users className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Local Expertise</h3>
+                <Users className="h-10 w-10 text-blue-600 mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-gray-700">Local Expertise</h3>
                 <p className="text-gray-600">
                   Our in-country team ensures cultural nuances, legal requirements, and operational challenges are managed seamlessly.
                 </p>
               </div>
               <div className="bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-100">
-                <Clock className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Tailored Solutions</h3>
+                <Clock className="h-10 w-10 text-blue-600 mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-gray-700">Tailored Solutions</h3>
                 <p className="text-gray-600">
                   We adapt our services to meet your specific needs, ensuring you get the best results without unnecessary complexity.
                 </p>
@@ -208,10 +207,10 @@ export const About = () => {
             </div>
           </div>
 
-          {/* Original No Travel Required */}
+          {/* No Travel Required */}
           <div className="max-w-4xl mx-auto mb-16">
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-              <h2 className="text-3xl font-bold mb-6">Why You Don't Need to Travel</h2>
+              <h2 className="text-3xl font-bold mb-6 text-gray-700">Why You Don't Need to Travel</h2>
               <p className="text-gray-700 mb-6">
                 For many businesses, traveling to China to oversee sourcing and manufacturing can be time-consuming and costly. With us, that's no longer necessary. Our team on the ground acts as your eyes and ears, handling every aspect of the process while keeping you informed every step of the way.
               </p>
@@ -221,19 +220,19 @@ export const About = () => {
             </div>
           </div>
 
-          {/* Original Call to Action */}
+          {/* Call to Action */}
           <div className="max-w-4xl mx-auto">
-            <div className="relative bg-gradient-to-r from-primary/80 to-primary rounded-2xl p-8 md:p-12 overflow-hidden">
+            <div className="relative bg-gradient-to-r from-blue-600/80 to-blue-600 rounded-2xl p-8 md:p-12 overflow-hidden">
               <div className="relative z-10">
                 <h2 className="text-3xl font-bold text-white mb-4">
                   Start Your Journey with Us
                 </h2>
-                <p className="text-white/90 text-lg mb-8 max-w-2xl">
+                <p className="text-white text-lg mb-8 max-w-2xl">
                   Succeeding in China's vast and competitive market doesn't have to be overwhelming. Let's build a partnership that transforms your business.
                 </p>
                 <a
                   href="#contact"
-                  className="inline-flex items-center bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                  className="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
                 >
                   Contact Us Today
                   <ArrowRight className="ml-2 h-5 w-5" />
