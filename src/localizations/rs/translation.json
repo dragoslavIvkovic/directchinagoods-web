@@ -1,7 +1,13 @@
 {
-  "welcome": "Vaš Partner za Uspešno Poslovanje u Kini",
-  "hello": "Здраво",
-  "about": "О нама",
-  "contact": "Контакт",
-  "services": "Услуге"
+  "navigation": {
+    "contacts": "Kontakt",
+    "testimonials": "Reference",
+    "faq": "Česta Pitanja"
+  },
+  "header": {
+    "backToTop": "Nazad na vrh"
+  },
+  "footer": {
+    "allRightsReserved": "Sva prava zadržana"
+  }
 }

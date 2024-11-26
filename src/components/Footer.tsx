@@ -1,168 +1,59 @@
-import { LogoIcon } from "./Icons";
+import { Landmark } from "lucide-react";
+
+const footerLinks = [
+  {
+    href: "#contacts",
+    label: "Contacts",
+  },
+  {
+    href: "#testimonials",
+    label: "Testimonials",
+  },
+  {
+    href: "#faq",
+    label: "FAQ",
+  },
+];
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer id="footer">
       <hr className="w-11/12 mx-auto" />
 
-      <section className="container py-20 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
-        <div className="col-span-full xl:col-span-2">
+      <section className="container py-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex items-center justify-center md:justify-start">
           <a
-            rel="noreferrer noopener"
-            href="/"
-            className="font-bold text-xl flex"
+            onClick={scrollToTop}
+            href="#"
+            className="font-bold text-xl flex items-center hover:opacity-80 transition-opacity"
           >
-            <LogoIcon />
-         
+            <Landmark className="h-8 w-8 mr-2" />
+            Back to Top
           </a>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Follow US</h3>
-          <div>
+        <nav className="flex justify-center md:justify-end items-center gap-8">
+          {footerLinks.map((link) => (
             <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
+              key={link.label}
+              href={link.href}
+              className="text-lg opacity-60 hover:opacity-100 transition-opacity"
             >
-              Github
+              {link.label}
             </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitter
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Dribbble
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Platforms</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Web
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Mobile
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Desktop
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">About</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Contacts
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              BlogList
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              FAQ
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Community</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Youtube
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Discord
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitch
-            </a>
-          </div>
-        </div>
+          ))}
+        </nav>
       </section>
 
-      <section className="container pb-14 text-center">
-        <h3>
-          &copy; 2024 Landing page made by{" "}
-          <a
-            rel="noreferrer noopener"
-            target="_blank"
-            href="https://www.linkedin.com/in/leopoldo-miranda/"
-            className="text-primary transition-all border-primary hover:border-b-2"
-          >
-            Leo Miranda
-          </a>
-        </h3>
+      <section className="container pb-14 text-center text-sm opacity-60">
+        <p>&copy; {new Date().getFullYear()} All rights reserved</p>
       </section>
     </footer>
   );
 };
+
+export default Footer;

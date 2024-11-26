@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,61 +11,88 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { buttonVariants } from "./ui/button";
 import { Landmark, Menu } from "lucide-react";
-import { ModeToggle } from "./mode-toggle";
- import LanguageSwitcher from "@/localizations/LanguageSwitcher";
+import LanguageSwitcher from "@/localizations/LanguageSwitcher";
 
 interface RouteProps {
   href: string;
-  label: string;
+  labelKey: string;
+  isHash?: boolean;
 }
 
 const routeList: RouteProps[] = [
   {
     href: "#contacts",
-    label: "Contacts",
+    labelKey: "navigation.contacts",
+    isHash: true,
   },
   {
     href: "#testimonials",
-    label: "Testimonials",
-  },
-  {
-    href: "#blog",
-    label: "Blog",
+    labelKey: "navigation.testimonials",
+    isHash: true,
   },
   {
     href: "#faq",
-    label: "FAQ",
+    labelKey: "navigation.faq",
+    isHash: true,
   },
 ];
 
 export const Navbar = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    route: RouteProps
+  ) => {
+    if (route.isHash) {
+      e.preventDefault();
+      const element = document.querySelector(route.href);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <header className="sticky border-b-[1px] top-0 z-40 w-full ">
+    <header
+      className={`sticky top-0 z-40 w-full transition-colors duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
       <NavigationMenu className="mx-auto">
-        <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between">
+        <NavigationMenuList className="container h-20 px-4 w-screen flex justify-between">
           <NavigationMenuItem className="font-bold flex">
             <a
               rel="noreferrer noopener"
               href="/"
-              className="ml-2 font-bold text-xl flex"
+              className={`ml-2 font-bold text-3xl flex ${
+                scrolled ? "text-gray-900" : "text-white"
+              }`}
             >
-              <Landmark />
-              
+              <Landmark className="h-8 w-8" />
             </a>
           </NavigationMenuItem>
 
           {/* mobile */}
           <div className="flex items-center gap-2 md:hidden">
             <LanguageSwitcher />
-            <ModeToggle />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger className="px-2">
                 <Menu
-                  className="h-5 w-5"
+                  className={`h-6 w-6 ${
+                    scrolled ? "text-gray-900" : "text-white"
+                  }`}
                   onClick={() => setIsOpen(true)}
                 >
                   <span className="sr-only">Menu Icon</span>
@@ -74,15 +102,18 @@ export const Navbar = () => {
               <SheetContent side="left">
                 <SheetHeader />
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
-                  {routeList.map(({ href, label }: RouteProps) => (
+                  {routeList.map((route: RouteProps) => (
                     <a
                       rel="noreferrer noopener"
-                      key={label}
-                      href={href}
-                      onClick={() => setIsOpen(false)}
-                      className={buttonVariants({ variant: "ghost" })}
+                      key={route.labelKey}
+                      href={route.href}
+                      onClick={(e) => {
+                        handleNavigation(e, route);
+                        setIsOpen(false);
+                      }}
+                      className="text-7xl text-gray-900 hover:text-gray-600 transition-colors"
                     >
-                      {label}
+                      {t(route.labelKey)}
                     </a>
                   ))}
                 </nav>
@@ -91,24 +122,26 @@ export const Navbar = () => {
           </div>
 
           {/* desktop */}
-          <div className="hidden md:flex items-center gap-4">
-            <nav className="flex gap-2">
+          <div className="hidden md:flex items-center gap-6">
+            <nav className="flex gap-6">
               {routeList.map((route: RouteProps, i) => (
                 <a
                   rel="noreferrer noopener"
                   href={route.href}
                   key={i}
-                  className={`text-[17px] ${buttonVariants({
-                    variant: "ghost",
-                  })}`}
+                  onClick={(e) => handleNavigation(e, route)}
+                  className={`text-2xl font-bold transition-colors ${
+                    scrolled
+                      ? "text-gray-900 hover:text-gray-600"
+                      : "text-white hover:text-gray-200"
+                  }`}
                 >
-                  {route.label}
+                  {t(route.labelKey)}
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-2 pl-2 border-l border-gray-200 dark:border-gray-700">
+            <div className="flex items-center gap-4 pl-6 border-l border-gray-200/20">
               <LanguageSwitcher />
-              <ModeToggle />
             </div>
           </div>
         </NavigationMenuList>
@@ -116,3 +149,5 @@ export const Navbar = () => {
     </header>
   );
 };
+
+export default Navbar;

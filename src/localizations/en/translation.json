@@ -1,7 +1,13 @@
 {
-  "welcome": "Your Trusted Gateway to Business Success in China",
-  "hello": "Hello",
-  "about": "About",
-  "contact": "Contact",
-  "services": "Services"
+  "navigation": {
+    "contacts": "Contacts",
+    "testimonials": "Testimonials",
+    "faq": "FAQ"
+  },
+  "header": {
+    "backToTop": "Back to Top"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved"
+  }
 }
