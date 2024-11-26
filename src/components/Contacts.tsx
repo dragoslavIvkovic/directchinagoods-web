@@ -1,12 +1,8 @@
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Loader2 } from "lucide-react";
 
 const Contact = () => {
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +23,7 @@ const Contact = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      const response = await fetch('http://your-domain.com/sendEmail.php', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/sendEmail.php`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +49,7 @@ const Contact = () => {
     } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Došlo je do greške prilikom slanja. Molimo pokušajte ponovo.'
+        message: 'An error occurred while sending. Please try again.'
       });
     } finally {
       setIsLoading(false);
@@ -68,39 +64,37 @@ const Contact = () => {
   };
 
   return (
-    // Važno: Dodajemo section element sa ID-jem koji mora da se poklapa sa href-om iz navigacije
     <section id="contacts" className="py-16">
-      <Card className="max-w-2xl mx-auto">
-        <CardHeader>
-          <CardTitle className="text-2xl">Kontaktirajte nas</CardTitle>
-        </CardHeader>
-        <CardContent>
+      <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-lg">
+        <div className="p-6">
+          <h2 className="text-2xl font-bold mb-6">Contact Us</h2>
+          
           {status.message && (
-            <Alert className={`mb-4 ${status.type === 'success' ? 'bg-green-50' : 'bg-red-50'}`}>
-              <AlertDescription>
-                {status.message}
-              </AlertDescription>
-            </Alert>
+            <div className={`mb-4 p-4 rounded-lg ${status.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+              {status.message}
+            </div>
           )}
           
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm">Ime i prezime</label>
-                <Input
+                <label htmlFor="name" className="text-sm text-gray-600">Full Name</label>
+                <input
                   id="name"
                   name="name"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   value={formData.name}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm">Email</label>
-                <Input
+                <label htmlFor="email" className="text-sm text-gray-600">Email</label>
+                <input
                   id="email"
                   name="email"
                   type="email"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -109,10 +103,11 @@ const Contact = () => {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="subject" className="text-sm">Naslov</label>
-              <Input
+              <label htmlFor="subject" className="text-sm text-gray-600">Subject</label>
+              <input
                 id="subject"
                 name="subject"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 value={formData.subject}
                 onChange={handleChange}
                 required
@@ -120,34 +115,36 @@ const Contact = () => {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm">Poruka</label>
-              <Textarea
+              <label htmlFor="message" className="text-sm text-gray-600">Message</label>
+              <textarea
                 id="message"
                 name="message"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg min-h-[150px] focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 value={formData.message}
                 onChange={handleChange}
-                className="min-h-[150px]"
                 required
               />
             </div>
 
-            <Button 
-              type="submit" 
-              className="w-full"
-              disabled={isLoading}
-            >
-              {isLoading ? (
+            <div className="flex justify-end">
+              <button 
+                type="submit" 
+                className="w-50 px-6 py-2 bg-black  text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isLoading}
+              >
+                {isLoading ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Slanje...
+                  <Loader2 className="inline mr-2 h-4 w-4 animate-spin" />
+                  Sending...
                 </>
-              ) : (
-                'Pošalji poruku'
-              )}
-            </Button>
+                ) : (
+                'Send Message'
+                )}
+              </button>
+            </div>
           </form>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </section>
   );
 };

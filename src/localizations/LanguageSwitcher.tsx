@@ -13,7 +13,7 @@ const LanguageSwitcher: React.FC = () => {
       <select
         onChange={(e) => changeLanguage(e.target.value)}
         defaultValue={i18n.language}
-        className={"text-white bg-gray-900 border rounded px-2 py-1"}
+        className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border border-transparent rounded-lg shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200 ease-in-out transform hover:-translate-y-0.5"
       >
         <option value="en">English</option>
         <option value="sr">Srpski</option>
