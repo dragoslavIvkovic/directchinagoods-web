@@ -14,6 +14,7 @@ i18n
       en: { translation: en },
       sr: { translation: sr },
     },
+    lng: 'en', // Postavljanje početnog jezika na engleski
     fallbackLng: 'en', // Jezik za slučaj neuspešne detekcije
     supportedLngs: ['en', 'sr'], // Lista podržanih jezika
     debug: true,

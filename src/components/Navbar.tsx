@@ -70,7 +70,7 @@ export const Navbar = () => {
               }`}
             >
               <Landmark className="h-6 w-6 sm:h-7 sm:w-7" />
-              <span className="ml-2 truncate">Doing business in China</span>
+                <span className="ml-2 truncate hidden sm:inline">Doing business in China</span>
             </a>
           </div>
 
