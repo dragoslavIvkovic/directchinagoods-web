@@ -81,6 +81,10 @@ export const Navbar = () => {
               }`}
             >
               <Landmark className="h-8 w-8" />
+              <span className="ml-2">
+                <span>Doing business in China</span>
+              
+              </span>
             </a>
           </NavigationMenuItem>
 
