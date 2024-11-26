@@ -1,0 +1,13 @@
+{
+  "navigation": {
+    "contacts": "Kontakt",
+    "testimonials": "Reference",
+    "faq": "Česta Pitanja"
+  },
+  "header": {
+    "backToTop": "Nazad na vrh"
+  },
+  "footer": {
+    "allRightsReserved": "Sva prava zadržana"
+  }
+}

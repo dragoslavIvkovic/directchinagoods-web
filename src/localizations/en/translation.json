@@ -1,0 +1,13 @@
+{
+  "navigation": {
+    "contacts": "Contacts",
+    "testimonials": "Testimonials",
+    "faq": "FAQ"
+  },
+  "header": {
+    "backToTop": "Back to Top"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved"
+  }
+}
