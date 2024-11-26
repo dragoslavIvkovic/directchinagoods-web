@@ -1,4 +1,16 @@
  
+import { 
+  ArrowRight, 
+  CheckCircle, 
+  Globe, 
+  Shield, 
+  Users, 
+  Plane, 
+  Clock, 
+  TrendingUp, 
+  Archive 
+} from 'lucide-react';
+
 export const About = () => {
   return (
     <section id="about" className="container py-24 sm:py-32">
