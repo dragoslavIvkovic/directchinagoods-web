@@ -101,7 +101,7 @@ export const Footer = () => {
               href="#"
               className="opacity-60 hover:opacity-100"
             >
-              Pricing
+              BlogList
             </a>
           </div>
 

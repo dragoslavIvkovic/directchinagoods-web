@@ -13,8 +13,7 @@ import {
 import { buttonVariants } from "./ui/button";
 import { Landmark, Menu } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
-import { LogoIcon } from "./Icons";
-import LanguageSwitcher from "@/localizations/LanguageSwitcher";
+ import LanguageSwitcher from "@/localizations/LanguageSwitcher";
 
 interface RouteProps {
   href: string;
@@ -31,8 +30,8 @@ const routeList: RouteProps[] = [
     label: "Testimonials",
   },
   {
-    href: "#pricing",
-    label: "Pricing",
+    href: "#blog",
+    label: "Blog",
   },
   {
     href: "#faq",
@@ -44,7 +43,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   
   return (
-    <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
+    <header className="sticky border-b-[1px] top-0 z-40 w-full ">
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between">
           <NavigationMenuItem className="font-bold flex">
