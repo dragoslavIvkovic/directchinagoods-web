@@ -74,7 +74,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="w-full h-screen flex items-center justify-center -mt-20">
+    <div className="w-full h-[calc(100vh-4rem)] md:h-screen flex items-center justify-center">
       <div className="relative w-full h-full overflow-hidden">
         {slides.map((slide, index) => (
           <div
