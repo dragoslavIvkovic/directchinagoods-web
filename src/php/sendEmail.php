@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode($json);
 
     // Podesi email podatke
-    $to = "vas@email.com"; // Promenite ovo na vaš email
+    $to = "office@directchinagoods.com"; // Promenite ovo na vaš email
     $subject = $data->subject;
     $message = "Ime: " . $data->name . "\n";
     $message .= "Email: " . $data->email . "\n\n";
