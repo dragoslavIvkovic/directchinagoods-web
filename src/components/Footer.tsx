@@ -2,8 +2,8 @@ import { Landmark } from "lucide-react";
 
 const footerLinks = [
   {
-    href: "#contacts",
-    label: "Contacts",
+    href: "#",
+    label: "office@directchinagoods.com",
   },
   {
     href: "#testimonials",
