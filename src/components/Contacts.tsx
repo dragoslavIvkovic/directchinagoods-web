@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Loader2 } from "lucide-react";
 
 const Contact = () => {
-  // const VITE_API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = "https://www.directchinagoods.com";
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,16 +24,18 @@ const Contact = () => {
     setStatus({ type: "", message: "" });
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/sendEmail.php`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${API_URL}/sendEmail.php`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const result = await response.json();
 
@@ -50,9 +53,11 @@ const Contact = () => {
         });
       }
     } catch (error) {
+      console.error("Submission error:", error);
       setStatus({
         type: "error",
-        message: "An error occurred while sending. Please try again.",
+        message:
+          "Failed to send message. Please try again later or contact us directly at office@directchinagoods.com",
       });
     } finally {
       setIsLoading(false);
@@ -67,6 +72,9 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }));
+    if (status.type === "error") {
+      setStatus({ type: "", message: "" });
+    }
   };
 
   return (
@@ -82,13 +90,14 @@ const Contact = () => {
                   ? "bg-green-50 text-green-800"
                   : "bg-red-50 text-red-800"
               }`}
+              role="alert"
             >
               {status.message}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm text-gray-600">
                   Full Name
@@ -100,6 +109,8 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  minLength={2}
+                  maxLength={100}
                 />
               </div>
               <div className="space-y-2">
@@ -129,6 +140,8 @@ const Contact = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 required
+                minLength={2}
+                maxLength={200}
               />
             </div>
 
