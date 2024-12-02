@@ -1,32 +1,56 @@
-// sendEmail.php
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
+// Allow requests from your specific domain
+header('Access-Control-Allow-Origin: https://www.directchinagoods.com');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
+header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Primi JSON podatke
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
+    exit();
+}
+
+try {
     $json = file_get_contents('php://input');
     $data = json_decode($json);
 
-    // Podesi email podatke
-    $to = "office@directchinagoods.com"; // Promenite ovo na vaš email
-    $subject = $data->subject;
-    $message = "Ime: " . $data->name . "\n";
-    $message .= "Email: " . $data->email . "\n\n";
-    $message .= "Poruka:\n" . $data->message;
-    
-    $headers = "From: " . $data->email . "\r\n";
-    $headers .= "Reply-To: " . $data->email . "\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
-
-    // Pošalji email
-    if (mail($to, $subject, $message, $headers)) {
-        echo json_encode(['status' => 'success', 'message' => 'Email je uspešno poslat!']);
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Došlo je do greške prilikom slanja emaila.']);
+    if (!$data || !isset($data->email) || !isset($data->name) || !isset($data->subject) || !isset($data->message)) {
+        throw new Exception('Invalid input data');
     }
-} else {
-    echo json_encode(['status' => 'error', 'message' => 'Pogrešan metod zahteva.']);
+
+    if (!filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
+        throw new Exception('Invalid email format');
+    }
+
+    $to = "office@directchinagoods.com";
+    $subject = htmlspecialchars($data->subject);
+    $message = "Name: " . htmlspecialchars($data->name) . "\n";
+    $message .= "Email: " . htmlspecialchars($data->email) . "\n\n";
+    $message .= "Message:\n" . htmlspecialchars($data->message);
+    
+    $headers = [
+        'From' => $data->email,
+        'Reply-To' => $data->email,
+        'X-Mailer' => 'PHP/' . phpversion(),
+        'Content-Type' => 'text/plain; charset=UTF-8'
+    ];
+
+    if (!mail($to, $subject, $message, $headers)) {
+        throw new Exception('Failed to send email');
+    }
+
+    http_response_code(200);
+    echo json_encode(['status' => 'success', 'message' => 'Email sent successfully!']);
+
+} catch (Exception $e) {
+    http_response_code(400);
+    echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
 }
 ?>
