@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Landmark, Menu, X } from "lucide-react";
+import { Landmark, Menu, X, MessageCircle, Phone } from "lucide-react";
 import LanguageSwitcher from "@/localizations/LanguageSwitcher";
 
 interface RouteProps {
@@ -24,6 +24,21 @@ const routeList: RouteProps[] = [
     href: "#faq",
     labelKey: "navigation.faq",
     isHash: true,
+  },
+];
+
+const socialLinks = [
+  {
+    href: "https://connect.viber.com/business/862d283a-adb9-11ef-853b-3a09fa779e63?utm_source=manage&utm_medium=copy_link",
+    icon: Phone,
+    label: "Viber",
+    hoverText: "Click on icon",
+  },
+  {
+    href: "https://chat.whatsapp.com/DvDmRRnYRTDGr9D8TGY5oT",
+    icon: MessageCircle,
+    label: "WhatsApp",
+    hoverText: "Click on icon",
   },
 ];
 
@@ -70,14 +85,38 @@ export const Navbar = () => {
               }`}
             >
               <Landmark className="h-6 w-6 sm:h-7 sm:w-7" />
-                <span className="ml-2 truncate hidden sm:inline">Doing business in China</span>
+              <span className="ml-2 truncate hidden sm:inline">
+                Doing business in China
+              </span>
             </a>
           </div>
 
           {/* mobile */}
           <div className="flex items-center gap-2 md:hidden">
+            <div className="flex items-center gap-4">
+              {socialLinks.map((link) => (
+                <div
+                  key={link.label}
+                  className="flex flex-col items-center group relative"
+                >
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className={`p-2 hover:opacity-80 transition-opacity cursor-pointer flex flex-col items-center ${
+                      scrolled ? "text-gray-900" : "text-white"
+                    }`}
+                    aria-label={link.label}
+                    title={link.hoverText}
+                  >
+                    <link.icon className="h-5 w-5" />
+                    <span className="text-xs mt-1">{link.label}</span>
+                  </a>
+                </div>
+              ))}
+            </div>
             <LanguageSwitcher />
-            <button 
+            <button
               onClick={() => setIsOpen(true)}
               className="p-2"
               aria-label="Open menu"
@@ -93,16 +132,18 @@ export const Navbar = () => {
             {isOpen && (
               <>
                 {/* Backdrop */}
-                <div 
+                <div
                   className="fixed inset-0 bg-black bg-opacity-50 z-50"
                   onClick={() => setIsOpen(false)}
                 />
-                
+
                 {/* Menu Panel */}
                 <div className="fixed top-0 left-0 w-full sm:w-80 h-full bg-white z-50 p-6 shadow-lg transform transition-transform duration-200">
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl font-semibold text-gray-900">Navigation Menu</h2>
-                    <button 
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      Navigation Menu
+                    </h2>
+                    <button
                       onClick={() => setIsOpen(false)}
                       className="p-2"
                       aria-label="Close menu"
@@ -110,7 +151,7 @@ export const Navbar = () => {
                       <X className="h-6 w-6 text-gray-500" />
                     </button>
                   </div>
-              
+
                   <nav className="flex flex-col gap-6">
                     {routeList.map((route: RouteProps) => (
                       <a
@@ -152,6 +193,26 @@ export const Navbar = () => {
               ))}
             </nav>
             <div className="flex items-center gap-4 pl-4 lg:pl-6 border-l border-gray-200/20">
+              {socialLinks.map((link) => (
+                <div
+                  key={link.label}
+                  className="flex flex-col items-center group relative"
+                >
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className={`p-2 hover:opacity-80 transition-opacity cursor-pointer flex flex-col items-center ${
+                      scrolled ? "text-gray-900" : "text-white"
+                    }`}
+                    aria-label={link.label}
+                    title={link.hoverText}
+                  >
+                    <link.icon className="h-5 w-5" />
+                    <span className="text-xs mt-1">{link.label}</span>
+                  </a>
+                </div>
+              ))}
               <LanguageSwitcher />
             </div>
           </div>
