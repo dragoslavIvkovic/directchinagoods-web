@@ -7,7 +7,7 @@ const Hero = () => {
       words:
         "Tap into a market of 1.4 billion consumers. Let our expertise guide your business expansion into the world's most dynamic economy.",
       image: "/kontejneri.jpg",
-      link: "#contacts",
+      link: "#office@directchinagoods.com",
       buttonText: "Start Your Journey",
     },
     {

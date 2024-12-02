@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { About } from "./components/About";
 import { FAQ } from "./components/FAQ";
 import { Footer } from "./components/Footer";
-import Contacts from "./components/Contacts";
+
 import { HowItWorks } from "./components/HowItWorks";
 import { Navbar } from "./components/Navbar";
 import { ScrollToTop } from "./components/ScrollToTop";
@@ -10,6 +10,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import "./App.css";
 import "./localizations/i18n";
 import Hero from "./components/Hero";
+import Documents from "./components/Documents";
 
 function App() {
   return (
@@ -28,8 +29,9 @@ function App() {
               <>
                 <Hero /> <HowItWorks />
                 <About />
+                <Documents />
                 {/* <Testimonials /> */}
-                <FAQ /> <Contacts />
+                <FAQ />
               </>
             }
           />

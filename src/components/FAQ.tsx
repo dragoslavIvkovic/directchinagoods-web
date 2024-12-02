@@ -92,10 +92,10 @@ export const FAQ = () => {
         <h3 className="text-xl font-medium text-black">
           Need more specific information?{" "}
           <a
-            href="#contacts"
+            href="#"
             className="text-primary transition-all border-primary hover:border-b-2"
           >
-            Schedule a free consultation
+            Schedule a free consultation office@directchinagoods.com
           </a>
         </h3>
         <p className="text-black/80 mt-2">
