@@ -7,8 +7,6 @@ import { HowItWorks } from "./components/HowItWorks";
 import { Navbar } from "./components/Navbar";
 import { ScrollToTop } from "./components/ScrollToTop";
 
-import { Testimonials } from "./components/Testimonials";
-
 import "./App.css";
 import "./localizations/i18n";
 import Hero from "./components/Hero";
