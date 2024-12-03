@@ -12,18 +12,18 @@ interface RouteProps {
 const routeList: RouteProps[] = [
   {
     href: "/documents",
-    labelKey: "Documents",
+    labelKey: "navigation.documents",
     isHash: false,
   },
+  // {
+  //   href: "#testimonials",
+  //   labelKey: "navigation.testimonials",
+  //   isHash: true,
+  // },
   {
-    href: "#testimonials",
-    labelKey: "navigation.testimonials",
-    isHash: true,
-  },
-  {
-    href: "#faq",
+    href: "/#faq", // Promena sa #faq na /#faq
     labelKey: "navigation.faq",
-    isHash: true,
+    isHash: false, // Promena na false jer sad koristimo punu putanju
   },
 ];
 
