@@ -7,7 +7,7 @@ import "./App.css";
 import "./localizations/i18n";
 
 // Lazy load components
-const About = lazy(() => import("./components/about/About"));
+const About = lazy(() => import("./components/About"));
 const FAQ = lazy(() => import("./components/FAQ"));
 const Footer = lazy(() => import("./components/Footer"));
 const HowItWorks = lazy(() => import("./components/HowItWorks"));

@@ -131,9 +131,6 @@ export const Navbar = () => {
 
           {/* mobile */}
           <div className="flex items-center gap-2 md:hidden">
-            <div className="flex items-center gap-4">
-              {socialLinks.map(renderSocialLink)}
-            </div>
             <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(true)}
@@ -180,6 +177,40 @@ export const Navbar = () => {
                       </a>
                     ))}
                   </nav>
+
+                  {/* Social links inside mobile menu */}
+                  <div className="mt-6 pt-6 border-t border-gray-200">
+                    <div className="flex flex-col gap-4">
+                      {socialLinks.map((link) => (
+                        <div
+                          key={link.label}
+                          className="flex items-center gap-3"
+                        >
+                          {link.isEmail ? (
+                            <div
+                              className="flex items-center text-gray-900"
+                              title={link.hoverText}
+                            >
+                              <link.icon className="h-5 w-5" />
+                              <span className="ml-2">{link.label}</span>
+                            </div>
+                          ) : (
+                            <a
+                              href={link.href}
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              className="flex items-center text-gray-900 hover:text-gray-600"
+                              aria-label={link.label}
+                              title={link.hoverText}
+                            >
+                              <link.icon className="h-5 w-5" />
+                              <span className="ml-2">{link.label}</span>
+                            </a>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </>
             )}
