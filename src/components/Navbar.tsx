@@ -74,7 +74,6 @@ export const Navbar = () => {
     }
   };
 
-  // Function to render social link
   const renderSocialLink = (link: (typeof socialLinks)[0]) => (
     <div key={link.label} className="flex flex-col items-center group relative">
       {link.isEmail ? (
@@ -113,8 +112,7 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-colors duration-300 bg-gradient-to-r from-blue-500 to-purple-500 shadow-md
-      }`}
+      className={`sticky top-0 z-40 w-full transition-colors duration-300 bg-gradient-to-r from-blue-500 to-purple-500 shadow-md`}
     >
       <nav className="mx-auto">
         <div className="container min-h-16 px-4 w-full flex items-center justify-between">
@@ -122,8 +120,7 @@ export const Navbar = () => {
             <a
               rel="noreferrer noopener"
               href="/"
-              className={`flex items-center text-xl sm:text-2xl md:text-3xl font-bold transition-colors  text-white
-          }`}
+              className="flex items-center text-lg sm:text-xl md:text-2xl font-bold transition-colors text-white"
             >
               <Landmark className="h-6 w-6 sm:h-7 sm:w-7" />
               <span className="ml-2 truncate hidden sm:inline">
@@ -143,10 +140,7 @@ export const Navbar = () => {
               className="p-2"
               aria-label="Open menu"
             >
-              <Menu
-                className={`h-6 w-6  text-white
-                }`}
-              />
+              <Menu className="h-6 w-6 text-white" />
             </button>
 
             {/* Mobile Menu Overlay */}
@@ -158,7 +152,7 @@ export const Navbar = () => {
                 />
                 <div className="fixed top-0 left-0 w-full sm:w-80 h-full bg-white z-50 p-6 shadow-lg transform transition-transform duration-200">
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl font-semibold text-gray-900">
+                    <h2 className="text-lg font-semibold text-gray-900">
                       Navigation Menu
                     </h2>
                     <button
@@ -180,7 +174,7 @@ export const Navbar = () => {
                           handleNavigation(e, route);
                           setIsOpen(false);
                         }}
-                        className="text-2xl sm:text-3xl text-gray-900 hover:text-gray-600 transition-colors"
+                        className="text-lg text-gray-900 hover:text-gray-600 transition-colors"
                       >
                         {t(route.labelKey)}
                       </a>
@@ -200,8 +194,7 @@ export const Navbar = () => {
                   href={route.href}
                   key={i}
                   onClick={(e) => handleNavigation(e, route)}
-                  className={`text-xl lg:text-2xl font-medium transition-colors  text-white hover:text-gray-200 
-                  }`}
+                  className="text-base lg:text-lg font-medium transition-colors text-white hover:text-gray-200"
                 >
                   {t(route.labelKey)}
                 </a>
