@@ -45,6 +45,14 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/documents"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Documents />
+              </Suspense>
+            }
+          />
         </Routes>
 
         <Suspense fallback={<Loader />}>

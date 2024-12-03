@@ -2,7 +2,8 @@
   "navigation": {
     "contacts": "Kontakt",
     "testimonials": "Reference",
-    "faq": "Česta Pitanja"
+    "faq": "Česta Pitanja",
+    "documents": "Dokumenti"
   },
   "header": {
     "backToTop": "Nazad na vrh"
