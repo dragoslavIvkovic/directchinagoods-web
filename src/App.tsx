@@ -22,7 +22,7 @@ const Loader = () => (
 );
 
 // Wrapper component for handling loading states
-const LoadingWrapper = ({ children }) => (
+const LoadingWrapper = ({ children }: { children: React.ReactNode }) => (
   <div className="w-full">
     <Suspense fallback={<Loader />}>{children}</Suspense>
   </div>
