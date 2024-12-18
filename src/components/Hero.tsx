@@ -3,6 +3,14 @@ import React, { useState, useEffect } from "react";
 const Hero = () => {
   const slides = [
     {
+      title: "Break Into China's Market",
+      words:
+        "Want to break into China's booming market but do not know where to begin? Our cross-border expertise will help you source competitive products, navigate complex regulations, and secure reliable partnerships. Let's transform your vision into lasting growth and a stronger bottom line.",
+      isTransparent: true,
+      link: "#contact",
+      buttonText: "Get Started",
+    },
+    {
       title: "Unlock China's Market Potential",
       words:
         "Tap into a market of 1.4 billion consumers. Let our expertise guide your business expansion into the world's most dynamic economy.",
@@ -83,31 +91,42 @@ const Hero = () => {
               currentSlide === index ? "opacity-100" : "opacity-0"
             }`}
           >
-            {/* Background Image */}
-            <div
-              className="absolute inset-0 w-full h-full"
-              style={{
-                backgroundImage: `url(${slide.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-            </div>
+            {slide.image ? (
+              <>
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0 w-full h-full"
+                  style={{
+                    backgroundImage: `url(${slide.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                />
+                {/* Black overlay only for image slides */}
+                <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+              </>
+            ) : null}
 
             {/* Content */}
             <div className="relative flex flex-col items-center justify-center h-96 max-w-4xl mx-auto px-4">
               <h1
-                className={`text-5xl md:text-6xl font-bold text-white mb-8 text-center transition-opacity duration-1000 ${
+                className={`${
+                  slide.isTransparent
+                    ? "text-6xl md:text-7xl"
+                    : "text-5xl md:text-6xl"
+                } font-bold text-white mb-8 text-center transition-opacity duration-1000 ${
                   showTitle ? "opacity-100" : "opacity-0"
                 }`}
               >
                 {slide.title}
               </h1>
               <p
-                className={`text-xl md:text-2xl text-white max-w-3xl text-center transition-opacity duration-1000 ${
+                className={`${
+                  slide.isTransparent
+                    ? "text-2xl md:text-3xl"
+                    : "text-xl md:text-2xl"
+                } text-white max-w-3xl text-center transition-opacity duration-1000 ${
                   showText ? "opacity-100" : "opacity-0"
                 }`}
               >
