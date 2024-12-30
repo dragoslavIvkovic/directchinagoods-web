@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Landmark, Menu, X, MessageCircle, Phone, Mail } from "lucide-react";
+import { Landmark, Menu, X, MessageCircle, Mail } from "lucide-react";
 import LanguageSwitcher from "@/localizations/LanguageSwitcher";
 
 interface RouteProps {
@@ -15,11 +15,11 @@ const routeList: RouteProps[] = [
     labelKey: "navigation.documents",
     isHash: false,
   },
-  // {
-  //   href: "#testimonials",
-  //   labelKey: "navigation.testimonials",
-  //   isHash: true,
-  // },
+  {
+    href: "#testimonials",
+    labelKey: "navigation.testimonials",
+    isHash: true,
+  },
   {
     href: "/#faq", // Promena sa #faq na /#faq
     labelKey: "navigation.faq",
@@ -28,12 +28,12 @@ const routeList: RouteProps[] = [
 ];
 
 const socialLinks = [
-  {
-    href: "https://connect.viber.com/business/862d283a-adb9-11ef-853b-3a09fa779e63?utm_source=manage&utm_medium=copy_link",
-    icon: Phone,
-    label: "Viber",
-    hoverText: "Click on icon",
-  },
+  // {
+  //   href: "https://connect.viber.com/business/862d283a-adb9-11ef-853b-3a09fa779e63?utm_source=manage&utm_medium=copy_link",
+  //   icon: Phone,
+  //   label: "Viber",
+  //   hoverText: "Click on icon",
+  // },
   {
     href: "https://chat.whatsapp.com/DvDmRRnYRTDGr9D8TGY5oT",
     icon: MessageCircle,
