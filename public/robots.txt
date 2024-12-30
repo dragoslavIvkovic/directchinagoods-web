@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /testimonials/
-Allow: /
-Sitemap: https://www.directchinagoods.com/sitemap.xml
