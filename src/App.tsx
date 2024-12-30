@@ -12,6 +12,7 @@ const FAQ = lazy(() => import("./components/FAQ"));
 const Footer = lazy(() => import("./components/Footer"));
 const HowItWorks = lazy(() => import("./components/HowItWorks"));
 const Documents = lazy(() => import("./components/Documents"));
+const Testimonials = lazy(() => import("./components/Testimonials"));
 
 // Enhanced loading spinner component
 const Loader = () => (
@@ -65,6 +66,9 @@ function App() {
                 </LoadingWrapper>
                 <LoadingWrapper>
                   <About />
+                </LoadingWrapper>
+                <LoadingWrapper>
+                  <Testimonials />
                 </LoadingWrapper>
                 <LoadingWrapper>
                   <Documents />

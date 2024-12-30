@@ -38,7 +38,7 @@ export const HowItWorks = () => {
     <section id="howItWorks" className="container text-center py-24 sm:py-32">
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
         Your Business{" "}
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
+        <span className="bg-gradient-to-b from-primary/60 to-primary   bg-clip-text">
           Expansion Guide
         </span>
       </h2>
