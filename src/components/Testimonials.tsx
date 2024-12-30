@@ -81,7 +81,10 @@ const Testimonials = () => {
   const currentTestimonials = allTestimonialSets[currentSetIndex];
 
   return (
-    <div className="relative px-4 py-20 overflow-hidden bg-gradient-to-br from-blue-600 to-purple-700">
+    <div
+      id="testimonials"
+      className="relative px-4 py-20 overflow-hidden bg-gradient-to-br from-blue-600 to-purple-700"
+    >
       <div className="relative container mx-auto ">
         <h2 className="text-3xl md:text-4xl font-bold justify-center text-center mb-7">
           Discover Why
