@@ -1,7 +1,8 @@
+import React from "react";
 import { Building2, Users2, LineChart, Globe } from "lucide-react";
 
 interface FeatureProps {
-  icon: JSX.Element;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }
