@@ -35,23 +35,24 @@ export const Documents = () => {
   const [expandedDoc, setExpandedDoc] = useState<string | null>(null);
 
   return (
-    <div className="container py-24">
+    <section className="container mx-auto px-4 py-24">
       {expandedDoc ? (
-        <div className="fixed inset-0 bg-white z-50 overflow-auto p-6">
-          <div className="max-w-4xl mx-auto">
+        <div className="fixed inset-0 bg-black/80 z-50 overflow-auto p-6 flex items-center justify-center">
+          <div className="bg-white max-w-4xl mx-auto rounded-2xl p-8 relative animate-in fade-in zoom-in duration-300">
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-700">
+              <h2 className="text-3xl font-bold text-gray-900">
                 {documents.find((doc) => doc.id === expandedDoc)?.title}
               </h2>
               <button
                 onClick={() => setExpandedDoc(null)}
-                className="p-2 hover:bg-gray-100 rounded-full"
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Close"
               >
                 <X className="h-6 w-6 text-gray-600" />
               </button>
             </div>
             <div className="prose max-w-none">
-              <p className="text-lg text-gray-700 whitespace-pre-line">
+              <p className="text-lg text-gray-700 whitespace-pre-line leading-relaxed">
                 {documents.find((doc) => doc.id === expandedDoc)?.content}
               </p>
             </div>
@@ -63,17 +64,21 @@ export const Documents = () => {
             <div
               key={doc.id}
               onClick={() => setExpandedDoc(doc.id)}
-              className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 
-                         hover:shadow-md transition-shadow cursor-pointer"
+              className="bg-[#161a2b] rounded-xl p-8 shadow-lg border border-white/5 
+                         hover:shadow-xl hover:border-[var(--color-accent-blue)] transition-all cursor-pointer group"
             >
-              <h3 className="text-xl font-semibold text-gray-700">
+              <h3 className="text-xl font-semibold text-white group-hover:text-[var(--color-accent-blue)] transition-colors mb-4">
                 {doc.title}
               </h3>
+               <p className="text-gray-400 line-clamp-3">
+                {doc.content}
+               </p>
+               <span className="text-[var(--color-accent-blue)] mt-4 inline-block text-sm font-medium">Read More →</span>
             </div>
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
