@@ -2,7 +2,7 @@ import React from "react";
 import { Building2, Users2, LineChart, Globe } from "lucide-react";
 
 interface FeatureProps {
-  icon: React.ReactNode;
+  icon: React.ReactElement;
   title: string;
   description: string;
 }
