@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import Button from '../ui/Button';
 
 const Footer = () => {
@@ -25,11 +25,18 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[var(--color-accent-blue)]"></span>
             </h3>
             <ul className="space-y-3">
-              {['About us', 'Our Service', 'Portfolio', 'Blog', 'Contact'].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-[var(--color-text-dim)] hover:text-[var(--color-accent-blue)] hover:pl-2 transition-all duration-300 text-sm flex items-center">
+              {[
+                { name: 'About us', href: '/#about' },
+                { name: 'Our Service', href: '/#features' },
+                { name: 'Portfolio', href: '/#portfolio' },
+                { name: 'Blog', href: '/blog' },
+                { name: 'Documents', href: '/documents' },
+                { name: 'Contact', href: '/#contact' },
+              ].map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="text-[var(--color-text-dim)] hover:text-[var(--color-accent-blue)] hover:pl-2 transition-all duration-300 text-sm flex items-center">
                     <span className="mr-2 opacity-0 hover:opacity-100 transition-opacity">→</span>
-                    {link}
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -43,17 +50,9 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[var(--color-accent-blue)]"></span>
             </h3>
              <ul className="space-y-4">
-                <li className="flex items-start space-x-3 text-[var(--color-text-dim)] text-sm">
-                    <MapPin size={18} className="text-[var(--color-accent-blue)] mt-1 shrink-0" />
-                    <span>123 Business Avenue,<br/>New York, NY 10012, USA</span>
-                </li>
                 <li className="flex items-center space-x-3 text-[var(--color-text-dim)] text-sm">
                     <Mail size={18} className="text-[var(--color-accent-blue)] shrink-0" />
-                    <span>support@charles.com</span>
-                </li>
-                <li className="flex items-center space-x-3 text-[var(--color-text-dim)] text-sm">
-                    <Phone size={18} className="text-[var(--color-accent-blue)] shrink-0" />
-                    <span>+1 (234) 567-890</span>
+                    <span>office@directchinagoods.com</span>
                 </li>
              </ul>
           </div>

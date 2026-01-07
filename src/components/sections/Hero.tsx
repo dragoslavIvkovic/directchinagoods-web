@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '../ui/Button';
 
-// Start: Fix lint error about unused 'React' by not importing it if not used, 
-// but in this env it might be needed for JSX transformation depending on config.
-// I will keep it but ignoring unrelated lints.
+const heroImages = [
+  '/src/assets/images/hero-bg.png',
+  '/src/assets/images/portfolio-1.png',
+  '/src/assets/images/portfolio-2.png',
+];
 
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 2000); // Change every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image Slider */}
       <div className="absolute inset-0 z-0">
-        <img 
-            src="/src/assets/images/hero-bg.png" 
-            alt="Hero Background" 
-            className="w-full h-full object-cover"
-        />
+        {heroImages.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Hero Background ${index + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
         {/* Overlay gradient to match the dark theme and ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#101321] via-[#101321]/80 to-transparent"></div>
       </div>
@@ -38,27 +55,33 @@ const Hero = () => {
             </p>
             
             <div className="pt-4">
-                <Button size="lg" className="shadow-[0_4px_20px_rgba(0,178,255,0.3)]">
-                    CONTACT US
-                </Button>
+                <a href="mailto:office@directchinagoods.com">
+                    <Button size="lg" className="shadow-[0_4px_20px_rgba(0,178,255,0.3)]">
+                        CONTACT US
+                    </Button>
+                </a>
             </div>
         </div>
 
         {/* Right Content - Abstract visual elements or empty to show bg */}
         <div className="hidden lg:block relative h-full min-h-[500px]">
-            {/* 
-               The reference site has some floating elements or transparent text.
-               I'll add a subtle interactive element here later if needed, 
-               but for now the background image + overlay provides the visual interest.
-            */}
         </div>
       </div>
 
-      {/* Bottom decorative/interactive elements */}
+      {/* Slide indicators */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex space-x-3">
-            <div className="w-3 h-3 rounded-full bg-[var(--color-accent-blue)] animate-bounce"></div>
-            <div className="w-3 h-3 rounded-full bg-white/50"></div>
-            <div className="w-3 h-3 rounded-full bg-white/50"></div>
+        {heroImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? 'bg-[var(--color-accent-blue)] w-8'
+                : 'bg-white/50 hover:bg-white/80'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

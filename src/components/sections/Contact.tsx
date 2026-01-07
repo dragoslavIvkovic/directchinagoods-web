@@ -2,6 +2,40 @@ import React from 'react';
 import Button from '../ui/Button';
 
 const Contact = () => {
+  // Form state and handlers commented out for later use
+  /*
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const { name, email, phone, subject, message } = formData;
+    const emailBody = `Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Message:
+${message}`;
+    
+    const mailtoLink = `mailto:office@directchinagoods.com?subject=${encodeURIComponent(subject || 'Contact Form Inquiry')}&body=${encodeURIComponent(emailBody)}`;
+    
+    window.location.href = mailtoLink;
+  };
+  */
+
   return (
     <section id="contact" className="py-20 bg-[#101321] relative z-20">
       <div className="container mx-auto px-4 md:px-8">
@@ -13,38 +47,47 @@ const Contact = () => {
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                     Get In <span className="text-gradient">Touch</span>
                 </h2>
-                <p className="text-[var(--color-text-dim)]">
+                <p className="text-[var(--color-text-dim)] mb-8">
                     Ready to start your project? Contact us today for a free consultation.
                 </p>
+                
+                {/* Direct mailto button instead of form */}
+                <a href="mailto:office@directchinagoods.com">
+                    <Button size="lg" className="min-w-[200px] text-lg">
+                        EMAIL US
+                    </Button>
+                </a>
             </div>
 
+            {/* Contact form commented out for later use */}
+            {/*
             <div className="bg-[#161a2b] p-8 md:p-12 rounded-2xl shadow-2xl border border-white/5">
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-6" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                              <label className="text-sm font-medium text-white ml-1">Name</label>
-                             <input type="text" placeholder="Your Name" className="w-full h-14 bg-[#1f243a] rounded-lg px-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all" />
+                             <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" className="w-full h-14 bg-[#1f243a] rounded-lg px-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all" />
                         </div>
                         <div className="space-y-2">
                              <label className="text-sm font-medium text-white ml-1">Email</label>
-                             <input type="email" placeholder="Your Email" className="w-full h-14 bg-[#1f243a] rounded-lg px-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all" />
+                             <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" className="w-full h-14 bg-[#1f243a] rounded-lg px-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all" />
                         </div>
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                          <div className="space-y-2">
                              <label className="text-sm font-medium text-white ml-1">Phone</label>
-                             <input type="tel" placeholder="Phone Number" className="w-full h-14 bg-[#1f243a] rounded-lg px-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all" />
+                             <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number" className="w-full h-14 bg-[#1f243a] rounded-lg px-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all" />
                         </div>
                          <div className="space-y-2">
                              <label className="text-sm font-medium text-white ml-1">Subject</label>
-                             <input type="text" placeholder="Subject" className="w-full h-14 bg-[#1f243a] rounded-lg px-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all" />
+                             <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="Subject" className="w-full h-14 bg-[#1f243a] rounded-lg px-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all" />
                         </div>
                     </div>
 
                     <div className="space-y-2">
                          <label className="text-sm font-medium text-white ml-1">Message</label>
-                         <textarea rows={5} placeholder="Your Message" className="w-full bg-[#1f243a] rounded-lg p-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all resize-none"></textarea>
+                         <textarea rows={5} name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" className="w-full bg-[#1f243a] rounded-lg p-6 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] transition-all resize-none"></textarea>
                     </div>
 
                     <div className="pt-4 text-center">
@@ -52,6 +95,7 @@ const Contact = () => {
                     </div>
                 </form>
             </div>
+            */}
         </div>
       </div>
     </section>

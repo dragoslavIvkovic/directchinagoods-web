@@ -15,11 +15,13 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Service', href: '#features' }, // Using anchor links for SPA feel
-    { name: 'About', href: '#about' }, // Added About
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Service', href: '/#features' },
+    { name: 'About', href: '/#about' },
+    { name: 'Portfolio', href: '/#portfolio' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Documents', href: '/documents' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -50,7 +52,7 @@ const Navbar = () => {
 
         {/* Right Actions */}
         <div className="hidden lg:flex items-center space-x-6">
-            <a href="#contact">
+            <a href="mailto:office@directchinagoods.com">
                 <Button size="sm" className="hidden xl:inline-flex uppercase font-bold tracking-wider">
                     Contact Us
                 </Button>
@@ -79,7 +81,7 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+           <a href="mailto:office@directchinagoods.com" onClick={() => setIsMobileMenuOpen(false)}>
                <Button className="w-full uppercase font-bold tracking-wider mt-4">
                     Contact Us
                 </Button>
