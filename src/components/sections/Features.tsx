@@ -5,22 +5,17 @@ const features = [
   {
     icon: <Target size={40} />,
     title: "Strategic Planning",
-    description: "Develop comprehensive strategies to achieve long-term business goals and sustainable growth."
-  },
-  {
-    icon: <BarChart2 size={40} />,
-    title: "Business Analysis",
-    description: "In-depth analysis of your business operations to identify areas for improvement and efficiency."
-  },
-  {
-    icon: <PieChart size={40} />,
-    title: "Financial Consulting",
-    description: "Expert financial advice to optimize your capital structure and improve profitability."
+    description: "Help with the best sourcing options for every client's needs in order to ensure long-term cooperation and high-quality products."
   },
   {
     icon: <Globe size={40} />,
-    title: "Market Research",
-    description: "Detailed market intelligence to help you make informed decisions and enter new markets."
+    title: "Help and Guidance",
+    description: "The best agentic representation on the market helps clients find their way in China. Visits to a foreign country can be difficult, and we offer a comprehensive all-in-one service to make it easier for you."
+  },
+  {
+    icon: <Globe size={40} />,
+    title: "Quality Control and Shipping",
+    description: "A dilligent, rigorous quality control allows us to ensure the products purchased match all standards required. Thanks to the close cooperation we maintain, we will ensure the quality and the timely shipping as per client's needs."
   }
 ];
 

@@ -38,23 +38,23 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="max-w-3xl space-y-8 animate-fade-in-up">
+        <div className="max-w-3xl space-y-6 md:space-y-8 animate-fade-in-up mt-8 md:mt-0 pt-10 md:pt-0 text-center md:text-left">
             <div className="inline-block relative">
-                <span className="text-[var(--color-accent-blue)] font-bold tracking-[0.2em] uppercase text-sm pl-12 relative">
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-0.5 bg-[var(--color-accent-blue)]"></span>
+                <span className="text-[var(--color-accent-blue)] font-bold tracking-[0.2em] uppercase text-xs md:text-sm pl-10 md:pl-12 relative">
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-6 md:w-8 h-0.5 bg-[var(--color-accent-blue)]"></span>
                     Welcome to Direct China Goods
                 </span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
-                Welcome to <span className="text-accent-blue">Direct China Goods</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white px-2 md:px-0">
+                Welcome to <br className="md:hidden" /><span className="text-accent-blue">Direct China Goods</span>
             </h1>
             
-            <p className="text-[var(--color-text-dim)] text-lg md:text-xl max-w-xl leading-relaxed">
-                Unlock your potential with our expert consulting services. We deliver tailored strategies to drive efficiency and sustainable success.
+            <p className="text-[var(--color-text-dim)] text-base sm:text-lg md:text-xl max-w-xl leading-relaxed mx-auto md:mx-0 px-4 md:px-0 opacity-90">
+                Unlock your potential with our expert consulting services. We provide professional sourcing and guidance for everything related to business in China.
             </p>
             
-            <div className="pt-4">
+            <div className="pt-2 md:pt-4 pb-10 md:pb-0">
                 <a href="mailto:office@directchinagoods.com">
                     <Button size="lg" className="shadow-[0_4px_20px_rgba(0,178,255,0.3)]">
                         CONTACT US
