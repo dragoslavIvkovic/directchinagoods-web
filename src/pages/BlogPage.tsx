@@ -26,7 +26,7 @@ Building long-term relationships with suppliers is key to success. Regular commu
 Remember to factor in shipping costs, import duties, and lead times when calculating your total landed cost. Working with experienced sourcing agents can help navigate these complexities.`,
     date: 'January 5, 2024',
     category: 'Sourcing',
-    image: '/src/assets/images/portfolio-1.png'
+    image: '/images/portfolio-1.png'
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ Pre-shipment inspections are your last line of defense before products leave the
 Document all inspections thoroughly and maintain open communication with your suppliers about quality expectations and corrective actions.`,
     date: 'December 28, 2023',
     category: 'Quality',
-    image: '/src/assets/images/portfolio-2.png'
+    image: '/images/portfolio-2.png'
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ Ensure your products comply with local safety standards and labeling requirement
 Consider working with a licensed customs broker who can help navigate complex regulations and ensure smooth clearance of your shipments.`,
     date: 'December 15, 2023',
     category: 'Logistics',
-    image: '/src/assets/images/about-img.png'
+    image: '/images/about-img.png'
   },
 ];
 
@@ -68,13 +68,13 @@ const BlogPage = () => {
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-[var(--color-accent-blue)] font-bold tracking-widest uppercase text-sm mb-2 block">
+          <span className="text-accent-blue font-bold tracking-widest uppercase text-sm mb-2 block">
             Our Blog
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Latest <span className="text-gradient">Insights</span>
           </h1>
-          <p className="text-[var(--color-text-dim)] max-w-2xl mx-auto">
+          <p className="text-text-dim max-w-2xl mx-auto">
             Stay updated with the latest trends, tips, and insights about sourcing from China and international trade.
           </p>
         </div>
@@ -85,7 +85,7 @@ const BlogPage = () => {
             <article 
               key={post.id}
               onClick={() => setSelectedPost(post)}
-              className="bg-[#161a2b] rounded-xl overflow-hidden border border-white/5 hover:border-[var(--color-accent-blue)] transition-all duration-300 group cursor-pointer"
+              className="bg-secondary-bg rounded-xl overflow-hidden border border-white/5 hover:border-accent-blue transition-all duration-300 group cursor-pointer"
             >
               <div className="relative h-48 overflow-hidden">
                 <img 
@@ -94,20 +94,20 @@ const BlogPage = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-[var(--color-accent-blue)] text-white text-xs font-bold uppercase px-3 py-1 rounded-full">
+                  <span className="bg-accent-blue text-white text-xs font-bold uppercase px-3 py-1 rounded-full">
                     {post.category}
                   </span>
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-[var(--color-text-dim)] text-sm mb-3">{post.date}</p>
-                <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[var(--color-accent-blue)] transition-colors">
+                <p className="text-text-dim text-sm mb-3">{post.date}</p>
+                <h2 className="text-xl font-bold text-white mb-3 group-hover:text-accent-blue transition-colors">
                   {post.title}
                 </h2>
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">
                   {post.excerpt}
                 </p>
-                <span className="text-[var(--color-accent-blue)] font-medium text-sm">
+                <span className="text-accent-blue font-medium text-sm">
                   Read More →
                 </span>
               </div>
@@ -134,7 +134,7 @@ const BlogPage = () => {
                 alt={selectedPost.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
               <button
                 onClick={() => setSelectedPost(null)}
                 className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm hover:bg-white/40 rounded-full transition-colors"
@@ -143,7 +143,7 @@ const BlogPage = () => {
                 <X className="h-6 w-6 text-white" />
               </button>
               <div className="absolute bottom-4 left-6">
-                <span className="bg-[var(--color-accent-blue)] text-white text-xs font-bold uppercase px-3 py-1 rounded-full">
+                <span className="bg-accent-blue text-white text-xs font-bold uppercase px-3 py-1 rounded-full">
                   {selectedPost.category}
                 </span>
               </div>

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Button from '../ui/Button';
 
 const heroImages = [
-  '/src/assets/images/hero-bg.png',
-  '/src/assets/images/portfolio-1.png',
-  '/src/assets/images/portfolio-2.png',
+  '/images/hero-bg.png',
+  '/images/portfolio-1.png',
+  '/images/portfolio-2.png',
 ];
 
 const Hero = () => {

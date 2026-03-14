@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Button from '../ui/Button';
+import ObfuscatedContact from '../ui/ObfuscatedContact';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,13 +28,31 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#101321]/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-6'
+        isScrolled ? 'bg-[#101321]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
+      {/* Top Contact Bar */}
+      <div className={`hidden md:block w-full border-b border-white/10 transition-all duration-300 ${isScrolled ? 'h-0 overflow-hidden border-transparent' : 'py-2 bg-black/20'}`}>
+        <div className="container mx-auto px-4 md:px-8 flex justify-end gap-6 items-center">
+            <ObfuscatedContact 
+              name="Joanna Liang" 
+              phone="+86 132 6703 2953" 
+              avatar="/images/Joanna.png" 
+              platforms={['whatsapp', 'wechat']}
+            />
+            <ObfuscatedContact 
+              name="Aleksandar Duric" 
+              phone="+86 185 6611 3944" 
+              avatar="/images/aleksandar.jpg" 
+              platforms={['whatsapp', 'wechat', 'viber']}
+            />
+        </div>
+      </div>
+
+      <div className={`container mx-auto px-4 md:px-8 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
         {/* Logo */}
         <div className="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[var(--color-accent-blue)]"></span>
+            <span className="w-2 h-2 rounded-full bg-accent-blue"></span>
             Direct China Goods
         </div>
 
@@ -43,7 +62,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-white hover:text-[var(--color-accent-blue)] font-medium text-sm uppercase tracking-wide transition-colors"
+              className="text-white hover:text-accent-blue font-medium text-sm uppercase tracking-wide transition-colors"
             >
               {link.name}
             </a>
@@ -75,7 +94,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-white hover:text-[var(--color-accent-blue)] font-medium text-lg border-b border-white/5 pb-2"
+              className="text-lg font-semibold hover:text-accent-blue transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}

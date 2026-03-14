@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
 
 const categoriesData = [
-  { id: 1, title: 'Gaming Accessories', image: '/src/assets/images/gaming_accessories.png' },
-  { id: 2, title: 'Glass Bottles', image: '/src/assets/images/glass_bottles.png' },
-  { id: 3, title: 'Solar Panels', image: '/src/assets/images/solar_panels.png' },
-  { id: 4, title: 'Electronic Components', image: '/src/assets/images/electronic_components.png' },
-  { id: 5, title: 'E-Cigarettes', image: '/src/assets/images/e_cigarettes.png' },
-  { id: 6, title: 'Shoulder Bags', image: '/src/assets/images/shoulder_bags.png' },
+  { id: 1, title: 'Gaming Accessories', image: '/images/gaming_accessories.png' },
+  { id: 2, title: 'Glass Bottles', image: '/images/glass_bottles.png' },
+  { id: 3, title: 'Solar Panels', image: '/images/solar_panels.png' },
+  { id: 4, title: 'Electronic Components', image: '/images/electronic_components.png' },
+  { id: 5, title: 'E-Cigarettes', image: '/images/e_cigarettes.png' },
+  { id: 6, title: 'Shoulder Bags', image: '/images/shoulder_bags.png' },
 ];
 
 const Portfolio = () => {

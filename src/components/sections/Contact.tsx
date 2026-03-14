@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../ui/Button';
+import ObfuscatedContact from '../ui/ObfuscatedContact';
 
 const Contact = () => {
   // Form state and handlers commented out for later use
@@ -52,11 +53,30 @@ ${message}`;
                 </p>
                 
                 {/* Direct mailto button instead of form */}
-                <a href="mailto:office@directchinagoods.com">
-                    <Button size="lg" className="min-w-[200px] text-lg">
-                        EMAIL US
-                    </Button>
-                </a>
+                <div className="flex flex-col items-center gap-10">
+                    <a href="mailto:office@directchinagoods.com">
+                        <Button size="lg" className="min-w-[200px] text-lg hover:shadow-[0_0_20px_rgba(0,178,255,0.4)] transition-shadow">
+                            EMAIL US
+                        </Button>
+                    </a>
+
+                    <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32 pt-12 border-t border-white/10 w-full max-w-4xl">
+                        <ObfuscatedContact 
+                            name="Joanna Liang" 
+                            phone="+86 132 6703 2953" 
+                            avatar="/images/Joanna.png" 
+                            platforms={['whatsapp', 'wechat']}
+                            size="lg"
+                        />
+                        <ObfuscatedContact 
+                            name="Aleksandar Duric" 
+                            phone="+86 185 6611 3944" 
+                            avatar="/images/aleksandar.jpg" 
+                            platforms={['whatsapp', 'wechat', 'viber']}
+                            size="lg"
+                        />
+                    </div>
+                </div>
             </div>
 
             {/* Contact form commented out for later use */}
